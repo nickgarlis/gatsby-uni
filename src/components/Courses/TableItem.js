@@ -2,11 +2,8 @@ import React from 'react'
 
 import Link from 'gatsby-link'
 
-import { Table, Divider } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
-// const typeDistinction=()=>{
-
-// }
 const TableItem = ({ course }) => (
   <Table.Row>
     <Table.Cell>

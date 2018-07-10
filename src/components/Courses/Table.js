@@ -4,36 +4,36 @@ import { Table } from 'semantic-ui-react'
 import TableItem from './TableItem'
 import TableFooter from './TableFooter'
 
-class TableExamplePagination extends React.Component {
-  constructor(props) {
-    super(props)
-    ;(this.state = {
-      semester: 1,
-      courses: [],
-    }),
-      (this.state.courses = this.getCourses())
-    this.onClick = this.onClick.bind(this)
-    // this.getCourses = this.getCourses.bind(this)
+class CoursesTable extends React.Component {
+  state = {
+    semester: 1
   }
-
+  
   getCourses = () => {
-    const courses = this.props.courses
-    return courses.filter(course => {
+    //returns all courses for the selected semester
+    return this.props.courses.filter(course => {
       return course.node.frontmatter.semester === this.state.semester
     })
   }
 
-  onClick = (e, data) => {
-    e.preventDefault()
-    const semester = parseInt(data.children)
-    this.setState({ semester }, () => {
-      const courses = this.getCourses()
-      this.setState({ courses })
+  getSemesters = () => {
+    //returns the number of semesters
+    let maxSemester = 0;
+    this.props.courses.forEach(course => {
+      const semester = course.node.frontmatter.semester
+      maxSemester = Math.max(maxSemester, semester)
     })
+    return maxSemester
+  }
+  
+  handleItemClick = (e, {name}) => {
+    const semester = parseInt(name)
+    this.setState({ semester })
   }
 
   render() {
-    //let courses = this.getCourses()
+    const courses = this.getCourses()
+    const semesters = this.getSemesters()
     return (
       <Table celled selectable>
         <Table.Header>
@@ -45,16 +45,16 @@ class TableExamplePagination extends React.Component {
         </Table.Header>
 
         <Table.Body>
-          {this.state.courses.map(course => {
+          {courses.map((course, index) => {
             const frontmatter = course.node.frontmatter
-            return <TableItem course={frontmatter}/>
+            return <TableItem key={index} course={frontmatter}/>
           })}
         </Table.Body>
 
-        <TableFooter onClick={this.onClick} />
+        <TableFooter handleItemClick={this.handleItemClick} activeItem={this.state.semester} semesters={semesters}/>
       </Table>
     )
   }
 }
 
-export default TableExamplePagination
+export default CoursesTable

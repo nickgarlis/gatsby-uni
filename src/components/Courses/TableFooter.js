@@ -2,7 +2,24 @@ import React from 'react'
 
 import { Table, Menu, Icon } from 'semantic-ui-react'
 
-const TableFooter = props => {
+const renderMenuItems = (props) => {
+  const {activeItem, semesters, handleItemClick} = props
+  let items = []
+  for (let i = 1; i < semesters + 1; i++) {
+    items.push(
+      <Menu.Item
+        as='a'
+        name={i}
+        active={activeItem === i}
+        onClick={handleItemClick}
+        key={i}
+      />
+    )
+  }
+  return items
+}
+
+const TableFooter = (props) => {
   return (
     <Table.Footer>
       <Table.Row>
@@ -11,11 +28,7 @@ const TableFooter = props => {
             <Menu.Item as='a' icon>
               <Icon name='chevron left' />
             </Menu.Item>
-            {['1', '2', '3', '4', '5', '6', '7', '8'].map(item => (
-              <Menu.Item as='a' onClick={props.onClick} key={item}>
-                {item}
-              </Menu.Item>
-            ))}
+            {renderMenuItems(props)}
             <Menu.Item as='a' icon>
               <Icon name='chevron right' />
             </Menu.Item>
