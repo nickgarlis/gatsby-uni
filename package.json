@@ -4,17 +4,14 @@
   "version": "1.0.0",
   "author": "Nick Garlis <nickgarlis@gmail.com>",
   "dependencies": {
-    "bootstrap-css": "^4.0.0-alpha.5",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-catch-links": "^1.0.19",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-source-filesystem": "^1.5.29",
     "gatsby-transformer-remark": "^1.7.39",
-    "materialize-css": "^0.100.2",
     "react-bootstrap": "^0.32.1",
     "react-helmet": "^5.2.0",
-    "react-materialize": "^2.3.3",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.82.0"
   },
