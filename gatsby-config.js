@@ -4,7 +4,7 @@ module.exports = {
     navItems: [
       {
         title: 'Courses',
-        path: '/courses'
+        path: '/courses/'
       },
       {
         title: 'People',

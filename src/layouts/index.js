@@ -9,33 +9,49 @@ import Footer from '../components/Footer'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
-const Layout = ({ children, data }) => {
-  const meta = data.site.siteMetadata
-  return (
-    <div>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          {
-            name: 'description',
-            content: 'A Gatsby theme meant for Universities'
-          },
-          { name: 'keywords', content: 'gatsby, react, tutorial' }
-        ]}
-        link={[
-          {
-            href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-            rel: 'stylesheet'
-          }
-        ]}
-      />
-      <Navigation title={meta.title} items={meta.navItems} />
-      <Main>
-        {children()}
-      </Main>
-      <Footer />
-    </div>
-  )
+class Layout extends React.Component {
+  state = {
+    currentPath: this.props.location.pathname
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { pathname } = nextProps.location;
+    this.setState((prevState, props) => {
+      return {
+        currentPath: pathname
+      };
+    });
+  }
+
+  render() {
+    const { children, data } = this.props
+    const meta = data.site.siteMetadata
+    return (
+      <div>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            {
+              name: 'description',
+              content: 'A Gatsby theme meant for Universities'
+            },
+            { name: 'keywords', content: 'gatsby, react, tutorial' }
+          ]}
+          link={[
+            {
+              href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+              rel: 'stylesheet'
+            }
+          ]}
+        />
+        <Navigation title={meta.title} items={meta.navItems} currentPath={this.state.currentPath}/>
+        <Main>
+          {children()}
+        </Main>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 Layout.propTypes = {
