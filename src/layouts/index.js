@@ -6,47 +6,42 @@ import Navigation from '../components/Navigation'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
+import config from '../../data/SiteConfig'
+
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
 class Layout extends React.Component {
   state = {
     currentPath: this.props.location.pathname
-  } 
+  }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     const { pathname } = this.props.location
     const prevPath = prevProps.location.pathname
-    if (pathname !== prevPath){
-      this.setState({currentPath: pathname})
+    if (pathname !== prevPath) {
+      this.setState({ currentPath: pathname })
     }
   }
 
-  render() {
-    const { children, data } = this.props
-    const meta = data.site.siteMetadata
+  render () {
+    const { children } = this.props
     return (
       <div>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: 'A Gatsby theme meant for Universities'
-            },
-            { name: 'keywords', content: 'gatsby, react, tutorial' }
-          ]}
-          link={[
-            {
-              href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-              rel: 'stylesheet'
-            }
-          ]}
+        <Helmet>
+          <title>{config.siteTitle}</title>
+          <meta name='description' content={config.siteDescription} />
+          <link
+            rel='stylesheet'
+            href='https://fonts.googleapis.com/icon?family=Material+Icons'
+          />
+        </Helmet>
+        <Navigation
+          title={config.siteTitle}
+          items={config.siteNav}
+          currentPath={this.state.currentPath}
         />
-        <Navigation title={meta.title} items={meta.navItems} currentPath={this.state.currentPath}/>
-        <Main>
-          {children()}
-        </Main>
+        <Main>{children()}</Main>
         <Footer />
       </div>
     )
@@ -58,17 +53,3 @@ Layout.propTypes = {
 }
 
 export default Layout
-
-export const query = graphql`
-  query SiteMetaQuery {
-    site {
-      siteMetadata {
-        title
-        navItems {
-          title
-          path
-        }
-      }
-    }
-  }
-`
