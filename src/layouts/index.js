@@ -12,15 +12,14 @@ import './index.css'
 class Layout extends React.Component {
   state = {
     currentPath: this.props.location.pathname
-  }
+  } 
 
-  componentWillReceiveProps(nextProps) {
-    const { pathname } = nextProps.location;
-    this.setState((prevState, props) => {
-      return {
-        currentPath: pathname
-      };
-    });
+  componentDidUpdate(prevProps) {
+    const { pathname } = this.props.location
+    const prevPath = prevProps.location.pathname
+    if (pathname !== prevPath){
+      this.setState({currentPath: pathname})
+    }
   }
 
   render() {

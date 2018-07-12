@@ -8,11 +8,11 @@ const renderMenuItems = (props) => {
   for (let i = 1; i < semesters + 1; i++) {
     items.push(
       <Menu.Item
+        key={i}
         as='a'
-        name={i}
+        name={i.toString()}
         active={activeItem === i}
         onClick={handleItemClick}
-        key={i}
       />
     )
   }

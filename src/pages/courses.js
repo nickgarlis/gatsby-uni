@@ -4,7 +4,6 @@ import Table from '../components/Courses/Table'
 
 const Courses = ({ data }) => {
   const courses = data.allMarkdownRemark.edges
-  console.log(courses)
   return (
     <div>
       <h1> Courses </h1>
