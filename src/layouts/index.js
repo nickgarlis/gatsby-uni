@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Navigation from '../components/Navigation'
+import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
@@ -41,6 +42,7 @@ class Layout extends React.Component {
           items={config.siteNav}
           currentPath={this.state.currentPath}
         />
+        <Header />
         <Main>{children()}</Main>
         <Footer />
       </div>

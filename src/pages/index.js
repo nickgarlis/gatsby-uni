@@ -2,7 +2,7 @@ import React from 'react'
 
 const IndexPage = () => (
   <div>
-    <h1>Welcome to Ionian Univeristy's website</h1>
+    <h1>Welcome to Gatsby Uni</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
       adipisci, voluptatum, nisi velit praesentium error quia explicabo voluptas
