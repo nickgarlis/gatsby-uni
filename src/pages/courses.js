@@ -2,12 +2,12 @@ import React from 'react'
 
 import Table from '../components/Courses/Table'
 
-const Courses = ({ data }) => {
+const Courses = ({ data, history, location }) => {
   const courses = data.allMarkdownRemark.edges
   return (
     <div>
       <h1> Courses </h1>
-      <Table courses={courses} />
+      <Table courses={courses} location={location} history={history}/>
     </div>
   )
 }

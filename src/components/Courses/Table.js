@@ -1,27 +1,38 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import qs from 'query-string'
 
 import TableItem from './TableItem'
 import TableFooter from './TableFooter'
 
 class CoursesTable extends React.Component {
-  state = {
-    semester: 1
+  constructor (props) {
+    super(props)
+    this.state = {}
+    this.handleSemesterClick = this.handleSemesterClick.bind(this)
+    this.handlePrevNextClick = this.handlePrevNextClick.bind(this)
   }
 
   componentWillMount () {
-    const semesters = this.getSemesters()
-    this.setState({ semesters })
-  }
-
-  getCourses = () => {
-    // returns all courses for the selected semester
-    return this.props.courses.filter(course => {
-      return course.node.frontmatter.semester === this.state.semester
+    const currentSemester = this.getSemesterQuery() || 1
+    const totalSemesters = this.getTotalSemesters()
+    this.setState({currentSemester, totalSemesters}, () => {
+      this.updateSemesterQuery(currentSemester)
     })
   }
 
-  getSemesters = () => {
+  getSemesterQuery () {
+    const {location} = this.props
+    return parseInt(qs.parse(location.search).semester)
+  }
+
+  updateSemesterQuery (value) {
+    this.props.history.push({
+      search: `?semester=${value}`
+    })
+  }
+
+  getTotalSemesters () {
     // returns the number of semesters
     let maxSemester = 0
     this.props.courses.forEach(course => {
@@ -31,12 +42,25 @@ class CoursesTable extends React.Component {
     return maxSemester
   }
 
-  handleSemesterClick = (e, { name }) => {
-    const semester = parseInt(name)
-    this.setState({ semester })
+  getCourses () {
+    // returns all courses for the selected semester
+    const {courses} = this.props
+    const {currentSemester} = this.state
+    return courses.filter(course => {
+      return course.node.frontmatter.semester === currentSemester
+    })
   }
 
-  handlePrevNextClick = (e, { name }) => {
+  handleSemesterClick (e, { name }) {
+    const newSemester = parseInt(name)
+    this.setState({ currentSemester: newSemester }, () => {
+      this.updateSemesterQuery(newSemester)
+    })
+  }
+
+  handlePrevNextClick (e, { name }) {
+    const { currentSemester, totalSemesters } = this.state
+
     let increment
     if (name === 'next') {
       increment = 1
@@ -45,14 +69,18 @@ class CoursesTable extends React.Component {
     } else {
       return
     }
-    const semester = this.state.semester + increment
-    if (semester > 0 && semester <= this.state.semesters) {
-      this.setState({ semester })
+
+    const newSemester = currentSemester + increment
+    if (newSemester > 0 && newSemester <= totalSemesters) {
+      this.setState({ currentSemester: newSemester }, () => {
+        this.updateSemesterQuery(newSemester)
+      })
     }
   }
 
   render () {
     const courses = this.getCourses()
+    const {currentSemester, totalSemesters} = this.state
     return (
       <Table celled selectable>
         <Table.Header>
@@ -73,8 +101,8 @@ class CoursesTable extends React.Component {
         <TableFooter
           handleSemesterClick={this.handleSemesterClick}
           handlePrevNextClick={this.handlePrevNextClick}
-          activeItem={this.state.semester}
-          semesters={this.state.semesters}
+          activeItem={currentSemester}
+          semesters={totalSemesters}
         />
       </Table>
     )
