@@ -2,22 +2,23 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import qs from 'query-string'
 
+import DropdownSemesters from './DropdownSemesters'
 import TableItem from './TableItem'
-import TableFooter from './TableFooter'
 
 class CoursesTable extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
     this.handleSemesterClick = this.handleSemesterClick.bind(this)
-    this.handlePrevNextClick = this.handlePrevNextClick.bind(this)
   }
 
   componentWillMount () {
-    const currentSemester = this.getSemesterQuery() || 1
+    const selectedSemester = this.getSemesterQuery()
     const totalSemesters = this.getTotalSemesters()
-    this.setState({currentSemester, totalSemesters}, () => {
-      this.updateSemesterQuery(currentSemester)
+    this.setState({selectedSemester, totalSemesters}, () => {
+      if (selectedSemester) {
+        this.updateSemesterQuery(selectedSemester)
+      }
     })
   }
 
@@ -43,68 +44,73 @@ class CoursesTable extends React.Component {
   }
 
   getCourses () {
-    // returns all courses for the selected semester
     const {courses} = this.props
-    const {currentSemester} = this.state
+    const {selectedSemester} = this.state
+
+    if (!selectedSemester) {
+      return courses
+    }
+
+    // returns all courses for the selected semester
     return courses.filter(course => {
-      return course.node.frontmatter.semester === currentSemester
+      return course.node.frontmatter.semester === selectedSemester
     })
   }
 
-  handleSemesterClick (e, { name }) {
-    const newSemester = parseInt(name)
-    this.setState({ currentSemester: newSemester }, () => {
-      this.updateSemesterQuery(newSemester)
+  handleSemesterClick (e, {value}) {
+    this.setState({ selectedSemester: value }, () => {
+      this.updateSemesterQuery(value)
     })
   }
 
-  handlePrevNextClick (e, { name }) {
-    const { currentSemester, totalSemesters } = this.state
-
-    let increment
-    if (name === 'next') {
-      increment = 1
-    } else if (name === 'previous') {
-      increment = -1
-    } else {
-      return
-    }
-
-    const newSemester = currentSemester + increment
-    if (newSemester > 0 && newSemester <= totalSemesters) {
-      this.setState({ currentSemester: newSemester }, () => {
-        this.updateSemesterQuery(newSemester)
-      })
-    }
+  randomColor () {
+    const colors = [
+      'red',
+      'orange',
+      'yellow',
+      'olive',
+      'green',
+      'teal',
+      'blue',
+      'violet',
+      'purple',
+      'pink',
+      'brown',
+      'grey',
+      'black'
+    ]
+    return colors[Math.floor(Math.random() * colors.length)]
   }
 
   render () {
     const courses = this.getCourses()
-    const {currentSemester, totalSemesters} = this.state
+    const {totalSemesters} = this.state
     return (
-      <Table celled selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>ECTS</Table.HeaderCell>
-            <Table.HeaderCell>Type</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {courses.map((course, index) => {
-            const frontmatter = course.node.frontmatter
-            return <TableItem key={index} course={frontmatter} />
-          })}
-        </Table.Body>
-
-        <TableFooter
+      <div>
+        <DropdownSemesters
+          totalSemesters={totalSemesters}
           handleSemesterClick={this.handleSemesterClick}
-          handlePrevNextClick={this.handlePrevNextClick}
-          activeItem={currentSemester}
-          semesters={totalSemesters}
         />
-      </Table>
+
+        <Table celled padded selectable color={this.randomColor()}>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Code</Table.HeaderCell>
+              <Table.HeaderCell>Title</Table.HeaderCell>
+              <Table.HeaderCell>ECTS</Table.HeaderCell>
+              <Table.HeaderCell>Type</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+          <Table.Body>
+            {courses.map((course, index) => {
+              const frontmatter = course.node.frontmatter
+              return <TableItem key={index} course={frontmatter} />
+            })}
+          </Table.Body>
+        </Table>
+      </div>
     )
   }
 }

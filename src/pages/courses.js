@@ -7,7 +7,7 @@ const Courses = ({ data, history, location }) => {
   return (
     <div>
       <h1> Courses </h1>
-      <Table courses={courses} location={location} history={history}/>
+      <Table courses={courses} location={location} history={history} />
     </div>
   )
 }
@@ -23,6 +23,7 @@ export const coursesQuery = graphql`
           frontmatter {
             title
             author
+            excerpt
             type
             ects
             semester
