@@ -86,12 +86,13 @@ class CoursesTable extends React.Component {
 
   render () {
     const courses = this.getCourses()
-    const {totalSemesters} = this.state
+    const {totalSemesters, selectedSemester} = this.state
 
     return (
       <div>
         <DropdownSemesters
           totalSemesters={totalSemesters}
+          selectedSemester={selectedSemester}
           handleSemesterClick={this.handleSemesterClick}
         />
 

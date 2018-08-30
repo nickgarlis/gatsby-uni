@@ -15,14 +15,15 @@ const getOptions = (totalSemesters) => {
   return options
 }
 
-const DropdownSemesters = ({totalSemesters, handleSemesterClick}) => {
+const DropdownSemesters = ({totalSemesters, selectedSemester, handleSemesterClick}) => {
   const options = getOptions(totalSemesters)
+  const defaultValue = selectedSemester || options[0].value
 
   return (
     <Dropdown
       fluid
       selection
-      defaultValue={options[0].value}
+      defaultValue={defaultValue}
       options={options}
       onChange={handleSemesterClick}
     />
