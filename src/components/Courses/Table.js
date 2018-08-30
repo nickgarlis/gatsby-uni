@@ -15,6 +15,7 @@ class CoursesTable extends React.Component {
   componentWillMount () {
     const selectedSemester = this.getSemesterQuery()
     const totalSemesters = this.getTotalSemesters()
+
     this.setState({selectedSemester, totalSemesters}, () => {
       if (selectedSemester) {
         this.updateSemesterQuery(selectedSemester)
@@ -40,6 +41,7 @@ class CoursesTable extends React.Component {
       const semester = course.node.frontmatter.semester
       maxSemester = Math.max(maxSemester, semester)
     })
+
     return maxSemester
   }
 
@@ -47,7 +49,7 @@ class CoursesTable extends React.Component {
     const {courses} = this.props
     const {selectedSemester} = this.state
 
-    if (!selectedSemester) {
+    if (!selectedSemester || selectedSemester === 'all') {
       return courses
     }
 
@@ -58,7 +60,7 @@ class CoursesTable extends React.Component {
   }
 
   handleSemesterClick (e, {value}) {
-    this.setState({ selectedSemester: value }, () => {
+    this.setState({selectedSemester: value}, () => {
       this.updateSemesterQuery(value)
     })
   }
@@ -85,6 +87,7 @@ class CoursesTable extends React.Component {
   render () {
     const courses = this.getCourses()
     const {totalSemesters} = this.state
+
     return (
       <div>
         <DropdownSemesters
