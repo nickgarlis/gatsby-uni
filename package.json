@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Nick Garlis <nickgarlis@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
+    "gatsby": "^1.9.277",
+    "gatsby-link": "^1.6.46",
     "gatsby-plugin-catch-links": "^1.0.19",
     "gatsby-plugin-manifest": "^1.0.27",
     "gatsby-plugin-offline": "^1.0.18",
@@ -13,10 +13,9 @@
     "gatsby-source-filesystem": "^1.5.29",
     "gatsby-transformer-remark": "^1.7.39",
     "query-string": "^6.1.0",
-    "react-bootstrap": "^0.32.1",
     "react-helmet": "^5.2.0",
     "semantic-ui-css": "^2.3.2",
-    "semantic-ui-react": "^0.82.0"
+    "semantic-ui-react": "^0.82.3"
   },
   "keywords": [
     "gatsby",
@@ -24,7 +23,6 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "gatsby serve",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,6 +31,8 @@
     "standard": "^11.0.1"
   },
   "standard": {
-    "globals": ["graphql"]
+    "globals": [
+      "graphql"
+    ]
   }
 }

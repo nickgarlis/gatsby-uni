@@ -22,6 +22,13 @@ module.exports = {
         name: 'courses'
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/${config.peopleDir}`,
+        name: 'people'
+      }
+    },
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -31,6 +38,7 @@ module.exports = {
         description: config.siteDescription,
         start_url: config.pathPrefix
       }
-    }
+    },
+    'gatsby-plugin-offline'
   ]
 }
