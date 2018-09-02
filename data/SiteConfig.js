@@ -4,7 +4,7 @@ module.exports = {
   postsDir: 'posts', // The name of directory that contains your people.
   siteTitle: 'Gatsby Uni', // Site title.
   siteTitleAlt: 'GatsbyJS Uni Theme', // Alternative site title for SEO.
-  siteLogo: '', // Logo used for SEO and manifest.
+  siteLogo: 'https://raw.githubusercontent.com/ioniodi/site-en/master/assets/images/logo.png', // Logo used for SEO and manifest.
   siteUrl: '', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-uni/.
   siteDescription: 'A Gatsby theme meant to be used by Universities.', // Website description used for RSS feeds/meta description tag.

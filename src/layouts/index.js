@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Navigation from '../components/Navigation'
+import NavBar from '../components/Navigation/NavBar'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
@@ -13,12 +13,15 @@ import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
 class Layout extends React.Component {
-  state = {
-    currentPath: this.props.location.pathname
+  constructor (props) {
+    super(props)
+    this.state = {
+      currentPath: props.location.pathname
+    }
   }
 
   componentDidUpdate (prevProps) {
-    const { pathname } = this.props.location
+    const {pathname} = this.props.location
     const prevPath = prevProps.location.pathname
     if (pathname !== prevPath) {
       this.setState({ currentPath: pathname })
@@ -26,7 +29,8 @@ class Layout extends React.Component {
   }
 
   render () {
-    const { children } = this.props
+    const {children} = this.props
+    const {currentPath} = this.state
     return (
       <div>
         <Helmet>
@@ -37,13 +41,16 @@ class Layout extends React.Component {
             href='https://fonts.googleapis.com/icon?family=Material+Icons'
           />
         </Helmet>
-        <Navigation
-          title={config.siteTitle}
+        <NavBar
+          currentPath={currentPath}
           items={config.siteNav}
-          currentPath={this.state.currentPath}
-        />
-        <Header />
-        <Main>{children()}</Main>
+          logo={config.siteLogo}
+        >
+          <Header />
+        </NavBar>
+        <Main>
+          {children()}
+        </Main>
         <Footer />
       </div>
     )

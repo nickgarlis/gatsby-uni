@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 const Header = () => {
   return (
