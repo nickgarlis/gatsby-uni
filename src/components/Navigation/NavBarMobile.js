@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import {
-  Icon,
   Image,
   Menu,
   Sidebar
 } from 'semantic-ui-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const getActive = (currentPath, item) => currentPath === item.path
 const NavBarMobile = ({
@@ -44,7 +44,7 @@ const NavBarMobile = ({
     >
       <Menu fixed='top'>
         <Menu.Item onClick={onToggle}>
-          <Icon name='sidebar' size='large' />
+          <FontAwesomeIcon icon='bars' size='2x' />
         </Menu.Item>
         <Menu.Item>
           <Image size='mini' src={logo} />
