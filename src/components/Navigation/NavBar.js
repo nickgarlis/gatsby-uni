@@ -29,7 +29,7 @@ class NavBar extends React.Component {
 
   NavBarChildren (children) {
     return (
-      <Container style={{ marginTop: '5em' }}>
+      <Container fluid>
         {children}
       </Container>
     )

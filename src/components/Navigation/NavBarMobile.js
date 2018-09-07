@@ -46,7 +46,7 @@ const NavBarMobile = ({
         <Menu.Item onClick={onToggle}>
           <FontAwesomeIcon icon='bars' size='2x' />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item as={Link} to='/'>
           <Image size='mini' src={logo} />
         </Menu.Item>
       </Menu>

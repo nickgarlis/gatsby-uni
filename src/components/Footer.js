@@ -10,7 +10,7 @@ import {
   Segment
 } from 'semantic-ui-react'
 
-const Footer = () => {
+const Footer = ({logo}) => {
   return (
     <Segment
       inverted
@@ -58,7 +58,7 @@ const Footer = () => {
         </Grid>
 
         <Divider inverted section />
-        <Image centered size='mini' src='/logo.png' />
+        <Image centered size='mini' src={logo} />
         <List horizontal inverted divided link>
           <List.Item as='a' href='#'>
             Site Map

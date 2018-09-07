@@ -51,11 +51,11 @@ class Layout extends React.Component {
           logo={config.siteLogo}
         >
           <Header />
+          <Main>
+            {children()}
+          </Main>
         </NavBar>
-        <Main>
-          {children()}
-        </Main>
-        <Footer />
+        <Footer logo={config.siteLogo} />
       </div>
     )
   }
