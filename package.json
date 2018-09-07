@@ -28,6 +28,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "lint": "./node_modules/standard/bin/cmd.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
