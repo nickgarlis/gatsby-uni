@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  Container,
-  Responsive
-} from 'semantic-ui-react'
+import { Responsive } from 'semantic-ui-react'
 
 import NavBarMobile from './NavBarMobile'
 import NavBarDesktop from './NavBarDesktop'
@@ -27,14 +24,6 @@ class NavBar extends React.Component {
     this.setState({visible: !visible})
   }
 
-  NavBarChildren (children) {
-    return (
-      <Container fluid>
-        {children}
-      </Container>
-    )
-  }
-
   render () {
     const {children, currentPath, items, logo} = this.props
     const {visible} = this.state
@@ -50,7 +39,7 @@ class NavBar extends React.Component {
             onToggle={this.handleToggle}
             visible={visible}
           >
-            {this.NavBarChildren(children)}
+            {children}
           </NavBarMobile>
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
@@ -59,7 +48,7 @@ class NavBar extends React.Component {
             items={items}
             logo={logo}
           />
-          {this.NavBarChildren(children)}
+          {children}
         </Responsive>
       </div>
     )
