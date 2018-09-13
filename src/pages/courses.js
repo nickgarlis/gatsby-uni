@@ -17,8 +17,10 @@ export default Courses
 export const coursesQuery = graphql`
   query CoursesIndexQuery {
     allMarkdownRemark (
+      filter: {fields: {collection: {eq: "courses"}}},
       sort: {fields: [frontmatter___semester, frontmatter___code], order: ASC}
-    ) {
+    ) 
+    {
       edges {
         node {
           id
