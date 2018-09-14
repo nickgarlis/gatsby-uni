@@ -1,5 +1,5 @@
 import React from 'react'
-import { Responsive } from 'semantic-ui-react'
+import {Responsive} from 'semantic-ui-react'
 
 import NavBarMobile from './NavBarMobile'
 import NavBarDesktop from './NavBarDesktop'

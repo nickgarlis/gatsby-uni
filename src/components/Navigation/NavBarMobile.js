@@ -5,7 +5,7 @@ import {
   Menu,
   Sidebar
 } from 'semantic-ui-react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const getActive = (currentPath, item) => currentPath === item.path
 const NavBarMobile = ({
@@ -32,6 +32,7 @@ const NavBarMobile = ({
           as={Link}
           to={item.path}
           name={item.title}
+          onClick={onPusherClick}
           active={getActive(currentPath, item)}
           size='large'
         />
