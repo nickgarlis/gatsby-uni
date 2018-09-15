@@ -13,8 +13,8 @@ class NavBarDesktop extends React.Component {
   }
 
   getActive (item) {
-    const {currentPath} = this.props
-    return currentPath === item.path
+    const {location} = this.props
+    return location.pathname === item.path
   }
 
   render () {

@@ -12,30 +12,8 @@ import LayoutHeader from '../components/LayoutHeader'
 library.add(faBars)
 
 class Layout extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      currentPath: props.location.pathname
-    }
-  }
-
-  componentDidUpdate (prevProps) {
-    const {pathname} = this.props.location
-    const prevPath = prevProps.location.pathname
-    if (pathname !== prevPath) {
-      this.setState({ currentPath: pathname })
-    }
-  }
-
-  getTitle () {
-    const {currentPath} = this.state
-    let title = currentPath.replace(/\//g, '')
-    return title[0].toUpperCase() + title.slice(1)
-  }
-
   render () {
-    const {children} = this.props
-    const {currentPath} = this.state
+    const {children, location} = this.props
     return (
       <div>
         <Helmet>
@@ -47,16 +25,17 @@ class Layout extends React.Component {
           />
         </Helmet>
         <NavBar
-          currentPath={currentPath}
+          location={location}
           items={siteNav}
           logo={siteLogo}
         >
-          {(currentPath === '/')
-            ? <Image
-              src='http://www.landezine.com/wp-content/uploads/2011/02/4-gh3_landscape-architecture-trinity-college-park.png'
-              fluid
-            />
-            : <LayoutHeader content={this.getTitle()} />
+          {
+            (location.pathname === '/')
+              ? <Image
+                src='http://www.landezine.com/wp-content/uploads/2011/02/4-gh3_landscape-architecture-trinity-college-park.png'
+                fluid
+              />
+              : <LayoutHeader location={location} />
           }
           <Container style={{ marginTop: '7em' }}>
             {children()}

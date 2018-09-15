@@ -25,14 +25,14 @@ class NavBar extends React.Component {
   }
 
   render () {
-    const {children, currentPath, items, logo} = this.props
+    const {children, items, location, logo} = this.props
     const {visible} = this.state
 
     return (
       <div>
         <Responsive {...Responsive.onlyMobile}>
           <NavBarMobile
-            currentPath={currentPath}
+            location={location}
             items={items}
             logo={logo}
             onPusherClick={this.handlePusher}
@@ -44,7 +44,7 @@ class NavBar extends React.Component {
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <NavBarDesktop
-            currentPath={currentPath}
+            location={location}
             items={items}
             logo={logo}
           />
