@@ -2,17 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {Container, Header, Image, Segment} from 'semantic-ui-react'
-
 import NavBar from '../components/Navigation/NavBar'
 import Footer from '../components/Footer'
-
-import config from '../../data/SiteConfig'
-
+import {siteTitle, siteDescription, siteNav, siteLogo} from '../../data/SiteConfig'
+import {colors} from '../utils/styles'
 import 'semantic-ui-css/semantic.min.css'
-import './index.css'
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 library.add(faBars)
 
 class Layout extends React.Component {
@@ -40,11 +36,12 @@ class Layout extends React.Component {
   render () {
     const {children} = this.props
     const {currentPath} = this.state
+    const {primary, secondary} = colors
     return (
       <div>
         <Helmet>
-          <title>{config.siteTitle}</title>
-          <meta name='description' content={config.siteDescription} />
+          <title>{siteTitle}</title>
+          <meta name='description' content={siteDescription} />
           <link
             rel='stylesheet'
             href='https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -52,8 +49,8 @@ class Layout extends React.Component {
         </Helmet>
         <NavBar
           currentPath={currentPath}
-          items={config.siteNav}
-          logo={config.siteLogo}
+          items={siteNav}
+          logo={siteLogo}
         >
           {(currentPath === '/')
             ? <Image
@@ -63,7 +60,7 @@ class Layout extends React.Component {
             : <Segment
               inverted
               textAlign='left'
-              style={{ minHeight: 300, padding: '1em 0em' }}
+              style={{ color: primary, backgroundColor: secondary, minHeight: 300, padding: '1em 0em' }}
               vertical
             >
               <Container>
@@ -84,7 +81,7 @@ class Layout extends React.Component {
           <Container style={{ marginTop: '7em' }}>
             {children()}
           </Container>
-          <Footer logo={config.siteLogo} />
+          <Footer logo={siteLogo} />
         </NavBar>
       </div>
     )

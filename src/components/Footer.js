@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   Container,
   Divider,
@@ -9,13 +8,14 @@ import {
   List,
   Segment
 } from 'semantic-ui-react'
+import {colors} from '../utils/styles'
 
 const Footer = ({logo}) => {
+  const {primary, secondary} = colors
   return (
     <Segment
-      inverted
       vertical
-      style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
+      style={{ color: primary, backgroundColor: secondary, margin: '5em 0em 0em', padding: '5em 0em' }}
     >
       <Container textAlign='center'>
         <Grid divided inverted stackable>
