@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import {Container, Header, Image, Segment} from 'semantic-ui-react'
+import {Container, Image} from 'semantic-ui-react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import {siteTitle, siteDescription, siteNav, siteLogo} from '../../data/SiteConfig'
-import {colors} from '../utils/styles'
 import 'semantic-ui-css/semantic.min.css'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
+import LayoutHeader from '../components/LayoutHeader'
 library.add(faBars)
 
 class Layout extends React.Component {
@@ -36,7 +36,6 @@ class Layout extends React.Component {
   render () {
     const {children} = this.props
     const {currentPath} = this.state
-    const {primary, secondary} = colors
     return (
       <div>
         <Helmet>
@@ -57,26 +56,7 @@ class Layout extends React.Component {
               src='http://www.landezine.com/wp-content/uploads/2011/02/4-gh3_landscape-architecture-trinity-college-park.png'
               fluid
             />
-            : <Segment
-              inverted
-              textAlign='left'
-              style={{ color: primary, backgroundColor: secondary, minHeight: 300, padding: '1em 0em' }}
-              vertical
-            >
-              <Container>
-                <Header
-                  as='h1'
-                  content={this.getTitle()}
-                  inverted
-                  style={{
-                    fontSize: '4em',
-                    fontWeight: 'normal',
-                    marginBottom: 0,
-                    marginTop: '3em'
-                  }}
-                />
-              </Container>
-            </Segment>
+            : <LayoutHeader content={this.getTitle()} />
           }
           <Container style={{ marginTop: '7em' }}>
             {children()}
