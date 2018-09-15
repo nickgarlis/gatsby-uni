@@ -1,6 +1,5 @@
 import React from 'react'
-
-import Table from '../components/Courses/Table'
+import Table from '../components/CoursesTable'
 
 const Courses = ({ data, history, location }) => {
   const courses = data.allMarkdownRemark.edges

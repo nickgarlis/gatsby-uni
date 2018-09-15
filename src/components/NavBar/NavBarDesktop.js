@@ -22,8 +22,9 @@ class NavBarDesktop extends React.Component {
     return (
       <Menu fixed='top'>
         <Container>
-          <Menu.Item as={Link} to='/'>
-            <Image size='mini' src={logo} />
+          <Menu.Item as={Link} to='/' header>
+            <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
+            Gatsby Uni
           </Menu.Item>
 
           {items.map(item =>

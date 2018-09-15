@@ -1,7 +1,6 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
 import qs from 'query-string'
-
 import DropdownSemesters from './DropdownSemesters'
 import TableItem from './TableItem'
 

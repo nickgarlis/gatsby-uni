@@ -8,7 +8,7 @@ import {
   List,
   Segment
 } from 'semantic-ui-react'
-import {colors} from '../utils/styles'
+import {colors} from '../../utils/styles'
 
 const Footer = ({logo}) => {
   const {primary, secondary} = colors
