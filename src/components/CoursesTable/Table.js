@@ -1,8 +1,8 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
-import qs from 'query-string'
 import DropdownSemesters from './DropdownSemesters'
 import TableItem from './TableItem'
+import getUrlQuery from '../../utils/getUrlQuery'
 
 class CoursesTable extends React.Component {
   constructor (props) {
@@ -24,7 +24,8 @@ class CoursesTable extends React.Component {
 
   getSemesterQuery () {
     const {location} = this.props
-    return parseInt(qs.parse(location.search).semester)
+    const query = getUrlQuery(location)
+    return parseInt(query.semester)
   }
 
   updateSemesterQuery (value) {
