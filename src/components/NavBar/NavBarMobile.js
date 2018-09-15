@@ -16,7 +16,6 @@ const NavBarMobile = ({
   onToggle,
   visible
 }) => {
-  
   const getActive = (item) => location.pathname === item.path
 
   return (
