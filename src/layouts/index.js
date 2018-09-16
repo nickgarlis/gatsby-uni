@@ -30,7 +30,7 @@ class Layout extends React.Component {
               />
               : <LayoutHeader location={location} />
           }
-          <Container style={{ marginTop: '7em' }}>
+          <Container style={{ marginTop: '7em', marginBottom: '5em' }}>
             {children()}
           </Container>
           <Footer logo={siteLogo} />

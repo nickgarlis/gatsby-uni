@@ -15,7 +15,7 @@ const Footer = ({logo}) => {
   return (
     <Segment
       vertical
-      style={{ color: primary, backgroundColor: secondary, margin: '5em 0em 0em', padding: '5em 0em' }}
+      style={{ color: primary, backgroundColor: secondary, paddingTop: '5em' }}
     >
       <Container textAlign='center'>
         <Grid divided inverted stackable>
