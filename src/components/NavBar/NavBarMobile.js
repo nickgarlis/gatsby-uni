@@ -24,7 +24,7 @@ const NavBarMobile = ({
         as={Menu}
         animation='overlay'
         icon='labeled'
-        size='small'
+        size='large'
         vertical
         visible={visible}
       >
@@ -45,7 +45,7 @@ const NavBarMobile = ({
         onClick={onPusherClick}
         style={{ minHeight: '100vh' }}
       >
-        <Menu fixed='top'>
+        <Menu fixed='top' pointing>
           <Menu.Item onClick={onToggle}>
             <FontAwesomeIcon icon='bars' size='2x' />
           </Menu.Item>
