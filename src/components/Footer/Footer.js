@@ -1,13 +1,13 @@
 import React from 'react'
 import {
   Container,
-  Divider,
   Grid,
   Header,
-  Image,
   List,
-  Segment
+  Segment,
+  Icon
 } from 'semantic-ui-react'
+import {siteTitle} from '../../../data/SiteConfig'
 import {colors} from '../../utils/styles'
 
 const Footer = ({logo}) => {
@@ -15,64 +15,36 @@ const Footer = ({logo}) => {
   return (
     <Segment
       vertical
-      style={{ color: primary, backgroundColor: secondary, paddingTop: '5em' }}
+      style={{ color: primary, backgroundColor: secondary, paddingTop: '5em', paddingBottom: '3em' }}
     >
       <Container textAlign='center'>
-        <Grid divided inverted stackable>
+        <Grid divided inverted stackable textAlign='center'>
           <Grid.Row>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Group 1' />
+            <Grid.Column width={4}>
+              <Header inverted as='h4' content='About' />
               <List link inverted>
-                <List.Item as='a'>Link One</List.Item>
-                <List.Item as='a'>Link Two</List.Item>
-                <List.Item as='a'>Link Three</List.Item>
-                <List.Item as='a'>Link Four</List.Item>
+                <List.Item as='a'>Contact {siteTitle}</List.Item>
+                <List.Item as='a'>Maps & Directions</List.Item>
+                <List.Item as='a'>Sitemap</List.Item>
               </List>
             </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Group 2' />
+            <Grid.Column width={4}>
+              <Header inverted as='h4' content='Courses' />
               <List link inverted>
-                <List.Item as='a'>Link One</List.Item>
-                <List.Item as='a'>Link Two</List.Item>
-                <List.Item as='a'>Link Three</List.Item>
-                <List.Item as='a'>Link Four</List.Item>
+                <List.Item as='a'>Bsc Courses</List.Item>
+                <List.Item as='a'>Msc Courses</List.Item>
               </List>
             </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Group 3' />
-              <List link inverted>
-                <List.Item as='a'>Link One</List.Item>
-                <List.Item as='a'>Link Two</List.Item>
-                <List.Item as='a'>Link Three</List.Item>
-                <List.Item as='a'>Link Four</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Footer Header' />
-              <p>
-                Extra space for a call to action inside the footer that could
-                help re-engage users.
-              </p>
+            <Grid.Column width={7}>
+              <Header inverted as='h4' content='Social Media' />
+              <Icon circular name='facebook f' size='large' link />
+              <Icon circular name='twitter' size='large' link />
+              <Icon circular name='instagram' size='large' link />
+              <Icon circular name='youtube' size='large' link />
+              <Icon circular name='rss' size='large' link />
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
-        <Divider inverted section />
-        <Image centered size='mini' src={logo} />
-        <List horizontal inverted divided link>
-          <List.Item as='a' href='#'>
-            Site Map
-          </List.Item>
-          <List.Item as='a' href='#'>
-            Contact Us
-          </List.Item>
-          <List.Item as='a' href='#'>
-            Terms and Conditions
-          </List.Item>
-          <List.Item as='a' href='#'>
-            Privacy Policy
-          </List.Item>
-        </List>
       </Container>
     </Segment>
   )
