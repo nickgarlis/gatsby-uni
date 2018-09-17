@@ -7,9 +7,6 @@ import NavBar from '../components/NavBar'
 import TitleAndMetaTags from '../components/TitleAndMetaTags'
 import {siteNav, siteLogo} from '../../data/SiteConfig'
 import 'semantic-ui-css/semantic.min.css'
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {faBars} from '@fortawesome/free-solid-svg-icons'
-library.add(faBars)
 
 class Layout extends React.Component {
   render () {

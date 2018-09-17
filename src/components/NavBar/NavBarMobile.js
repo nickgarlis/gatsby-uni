@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import {
+  Icon,
   Image,
   Menu,
   Sidebar
 } from 'semantic-ui-react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const NavBarMobile = ({
   children,
@@ -22,7 +22,8 @@ const NavBarMobile = ({
     <Sidebar.Pushable>
       <Sidebar
         as={Menu}
-        animation='overlay'
+        animation='push'
+        direction='right'
         icon='labeled'
         size='large'
         vertical
@@ -46,12 +47,14 @@ const NavBarMobile = ({
         style={{ minHeight: '100vh' }}
       >
         <Menu attached='top' borderless>
-          <Menu.Item onClick={onToggle}>
-            <FontAwesomeIcon icon='bars' size='2x' />
-          </Menu.Item>
           <Menu.Item as={Link} to='/'>
             <Image size='mini' src={logo} />
           </Menu.Item>
+          <Menu.Menu position='right'>
+            <Menu.Item onClick={onToggle}>
+              <Icon name='bars' size='large' />
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
         {children}
       </Sidebar.Pusher>
