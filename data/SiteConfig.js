@@ -29,5 +29,38 @@ module.exports = {
       title: 'News',
       path: '/news/'
     }
+  ],
+  // Icons and links of the social media you want to appear on the Footer.
+  siteSocial: [
+    {
+      label: 'Email',
+      icon: 'mail', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'mailto:your.name@email.com'
+    },
+    {
+      label: 'Facebook',
+      icon: 'facebook f', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'https://facebook.com/'
+    },
+    {
+      label: 'Twitter',
+      icon: 'twitter', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'https://twitter.com/'
+    },
+    {
+      label: 'Instagram',
+      icon: 'instagram', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'https://instagram.com/'
+    },
+    {
+      label: 'Youtube',
+      icon: 'youtube', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'https://youtube.com/'
+    },
+    {
+      label: 'Github',
+      icon: 'github', // Semantic UI Icon Fonts: https://react.semantic-ui.com/elements/icon/
+      url: 'https://github.com/'
+    }
   ]
 }

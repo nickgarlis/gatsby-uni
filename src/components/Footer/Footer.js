@@ -4,10 +4,10 @@ import {
   Grid,
   Header,
   List,
-  Segment,
-  Icon
+  Segment
 } from 'semantic-ui-react'
-import {siteTitle} from '../../../data/SiteConfig'
+import SocialLink from './SocialLink'
+import {siteTitle, siteSocial} from '../../../data/SiteConfig'
 import {colors} from '../../utils/styles'
 
 const Footer = ({logo}) => {
@@ -37,11 +37,9 @@ const Footer = ({logo}) => {
             </Grid.Column>
             <Grid.Column width={7}>
               <Header inverted as='h4' content='Social Media' />
-              <Icon circular name='facebook f' size='large' link />
-              <Icon circular name='twitter' size='large' link />
-              <Icon circular name='instagram' size='large' link />
-              <Icon circular name='youtube' size='large' link />
-              <Icon circular name='rss' size='large' link />
+              {siteSocial.map(social =>
+                <SocialLink key={social.label} url={social.url} icon={social.icon} />
+              )}
             </Grid.Column>
           </Grid.Row>
         </Grid>
