@@ -20,7 +20,7 @@ class NavBarDesktop extends React.Component {
   render () {
     const {items, logo} = this.props
     return (
-      <Menu fixed='top'>
+      <Menu attached='top' borderless>
         <Container>
           <Menu.Item as={Link} to='/' header>
             <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />

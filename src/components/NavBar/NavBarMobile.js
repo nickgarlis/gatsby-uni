@@ -45,7 +45,7 @@ const NavBarMobile = ({
         onClick={onPusherClick}
         style={{ minHeight: '100vh' }}
       >
-        <Menu fixed='top' pointing>
+        <Menu attached='top' borderless>
           <Menu.Item onClick={onToggle}>
             <FontAwesomeIcon icon='bars' size='2x' />
           </Menu.Item>
