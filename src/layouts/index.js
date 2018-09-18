@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar'
 import TitleAndMetaTags from '../components/TitleAndMetaTags'
 import {siteNav, siteLogo} from '../../data/SiteConfig'
 import 'semantic-ui-css/semantic.min.css'
+import 'glamor/reset'
 
 class Layout extends React.Component {
   render () {
