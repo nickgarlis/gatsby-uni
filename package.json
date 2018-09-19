@@ -26,6 +26,7 @@
     "prettier": "^1.14.3",
     "query-string": "^6.1.0",
     "react-helmet": "^5.2.0",
+    "rimraf": "^2.6.2",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.82.3"
   },
@@ -38,10 +39,10 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --config .prettierrc --write \"{gatsby-*.js,{data,src}/**/*.js}\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "reset": "rimraf ./.cache"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^3.0.1",
-    "standard": "^11.0.1"
+    "eslint-config-prettier": "^3.0.1"
   }
 }
