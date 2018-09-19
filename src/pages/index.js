@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const IndexPage = () => (
   <div>
@@ -11,6 +11,6 @@ const IndexPage = () => (
       eligendi itaque qui?
     </p>
   </div>
-)
+);
 
-export default IndexPage
+export default IndexPage;

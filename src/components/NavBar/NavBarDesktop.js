@@ -1,33 +1,29 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import {
-  Container,
-  Image,
-  Menu
-} from 'semantic-ui-react'
+import React from 'react';
+import Link from 'gatsby-link';
+import {Container, Image, Menu} from 'semantic-ui-react';
 
 class NavBarDesktop extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {activeItem: ''}
+  constructor(props) {
+    super(props);
+    this.state = {activeItem: ''};
   }
 
-  getActive (item) {
-    const {location} = this.props
-    return location.pathname === item.path
+  getActive(item) {
+    const {location} = this.props;
+    return location.pathname === item.path;
   }
 
-  render () {
-    const {items, logo} = this.props
+  render() {
+    const {items, logo} = this.props;
     return (
-      <Menu attached='top' borderless>
+      <Menu attached="top" borderless>
         <Container>
-          <Menu.Item as={Link} to='/' header>
-            <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
+          <Menu.Item as={Link} to="/" header>
+            <Image size="mini" src={logo} style={{marginRight: '1.5em'}} />
             Gatsby Uni
           </Menu.Item>
 
-          {items.map(item =>
+          {items.map(item => (
             <Menu.Item
               key={item.title}
               as={Link}
@@ -35,11 +31,11 @@ class NavBarDesktop extends React.Component {
               name={item.title}
               active={this.getActive(item)}
             />
-          )}
+          ))}
         </Container>
       </Menu>
-    )
+    );
   }
 }
 
-export default NavBarDesktop
+export default NavBarDesktop;

@@ -9,5 +9,5 @@
 
 export const colors = {
   primary: '#FFFFFF',
-  secondary: '#7EA172'
-}
+  secondary: '#7EA172',
+};

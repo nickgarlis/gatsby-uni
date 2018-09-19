@@ -1,6 +1,6 @@
-import queryString from 'query-string'
+import queryString from 'query-string';
 
-export default (data) =>
-  (typeof data === 'object')
+export default data =>
+  typeof data === 'object'
     ? queryString.parse(data.search)
-    : queryString.parse(data)
+    : queryString.parse(data);

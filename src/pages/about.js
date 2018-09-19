@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const AboutPage = () => (
   <div>
@@ -11,6 +11,6 @@ const AboutPage = () => (
       eligendi itaque qui?
     </p>
   </div>
-)
+);
 
-export default AboutPage
+export default AboutPage;

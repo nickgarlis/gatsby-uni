@@ -1,23 +1,29 @@
-import React from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import React from 'react';
+import {Dropdown} from 'semantic-ui-react';
 
-const getOptions = (totalSemesters) => {
-  const options = [{
-    'text': 'All Semesters',
-    'value': 'all'
-  }]
+const getOptions = totalSemesters => {
+  const options = [
+    {
+      text: 'All Semesters',
+      value: 'all',
+    },
+  ];
   for (let i = 1; i < totalSemesters + 1; i++) {
     options.push({
-      'text': `Semester ${i}`,
-      'value': i
-    })
+      text: `Semester ${i}`,
+      value: i,
+    });
   }
-  return options
-}
+  return options;
+};
 
-const DropdownSemesters = ({totalSemesters, selectedSemester, handleSemesterClick}) => {
-  const options = getOptions(totalSemesters)
-  const defaultValue = selectedSemester || options[0].value
+const DropdownSemesters = ({
+  totalSemesters,
+  selectedSemester,
+  handleSemesterClick,
+}) => {
+  const options = getOptions(totalSemesters);
+  const defaultValue = selectedSemester || options[0].value;
 
   return (
     <Dropdown
@@ -27,7 +33,7 @@ const DropdownSemesters = ({totalSemesters, selectedSemester, handleSemesterClic
       options={options}
       onChange={handleSemesterClick}
     />
-  )
-}
+  );
+};
 
-export default DropdownSemesters
+export default DropdownSemesters;

@@ -1,6 +1,6 @@
-const config = require('./data/SiteConfig')
+const config = require('./data/SiteConfig');
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -9,8 +9,8 @@ module.exports = {
       site_url: config.siteUrl + pathPrefix,
       feed_url: config.siteUrl + pathPrefix + config.siteRss,
       title: config.siteTitle,
-      description: config.siteDescription
-    }
+      description: config.siteDescription,
+    },
   },
   plugins: [
     'gatsby-plugin-glamor',
@@ -20,15 +20,15 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/${config.coursesDir}`,
-        name: 'courses'
-      }
+        name: 'courses',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/${config.peopleDir}`,
-        name: 'people'
-      }
+        name: 'people',
+      },
     },
     'gatsby-transformer-remark',
     {
@@ -37,9 +37,9 @@ module.exports = {
         name: config.siteTitle,
         short_name: config.siteTitle,
         description: config.siteDescription,
-        start_url: config.pathPrefix
-      }
+        start_url: config.pathPrefix,
+      },
     },
-    'gatsby-plugin-offline'
-  ]
-}
+    'gatsby-plugin-offline',
+  ],
+};

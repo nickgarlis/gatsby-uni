@@ -1,71 +1,71 @@
-import React from 'react'
-import { Table } from 'semantic-ui-react'
-import DropdownSemesters from './DropdownSemesters'
-import TableItem from './TableItem'
-import getUrlQuery from '../../utils/getUrlQuery'
+import React from 'react';
+import {Table} from 'semantic-ui-react';
+import DropdownSemesters from './DropdownSemesters';
+import TableItem from './TableItem';
+import getUrlQuery from '../../utils/getUrlQuery';
 
 class CoursesTable extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {}
-    this.handleSemesterClick = this.handleSemesterClick.bind(this)
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleSemesterClick = this.handleSemesterClick.bind(this);
   }
 
-  componentWillMount () {
-    const selectedSemester = this.getSemesterQuery()
-    const totalSemesters = this.getTotalSemesters()
+  componentWillMount() {
+    const selectedSemester = this.getSemesterQuery();
+    const totalSemesters = this.getTotalSemesters();
 
     this.setState({selectedSemester, totalSemesters}, () => {
       if (selectedSemester) {
-        this.updateSemesterQuery(selectedSemester)
+        this.updateSemesterQuery(selectedSemester);
       }
-    })
+    });
   }
 
-  getSemesterQuery () {
-    const {location} = this.props
-    const query = getUrlQuery(location)
-    return parseInt(query.semester)
+  getSemesterQuery() {
+    const {location} = this.props;
+    const query = getUrlQuery(location);
+    return parseInt(query.semester, 10);
   }
 
-  updateSemesterQuery (value) {
+  updateSemesterQuery(value) {
     this.props.history.push({
-      search: `?semester=${value}`
-    })
+      search: `?semester=${value}`,
+    });
   }
 
-  getTotalSemesters () {
+  getTotalSemesters() {
     // returns the number of semesters
-    let maxSemester = 0
+    let maxSemester = 0;
     this.props.courses.forEach(course => {
-      const semester = course.node.frontmatter.semester
-      maxSemester = Math.max(maxSemester, semester)
-    })
+      const semester = course.node.frontmatter.semester;
+      maxSemester = Math.max(maxSemester, semester);
+    });
 
-    return maxSemester
+    return maxSemester;
   }
 
-  getCourses () {
-    const {courses} = this.props
-    const {selectedSemester} = this.state
+  getCourses() {
+    const {courses} = this.props;
+    const {selectedSemester} = this.state;
 
     if (!selectedSemester || selectedSemester === 'all') {
-      return courses
+      return courses;
     }
 
     // returns all courses for the selected semester
     return courses.filter(course => {
-      return course.node.frontmatter.semester === selectedSemester
-    })
+      return course.node.frontmatter.semester === selectedSemester;
+    });
   }
 
-  handleSemesterClick (e, {value}) {
+  handleSemesterClick(e, {value}) {
     this.setState({selectedSemester: value}, () => {
-      this.updateSemesterQuery(value)
-    })
+      this.updateSemesterQuery(value);
+    });
   }
 
-  randomColor () {
+  randomColor() {
     const colors = [
       'red',
       'orange',
@@ -79,14 +79,14 @@ class CoursesTable extends React.Component {
       'pink',
       'brown',
       'grey',
-      'black'
-    ]
-    return colors[Math.floor(Math.random() * colors.length)]
+      'black',
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
   }
 
-  render () {
-    const courses = this.getCourses()
-    const {totalSemesters, selectedSemester} = this.state
+  render() {
+    const courses = this.getCourses();
+    const {totalSemesters, selectedSemester} = this.state;
 
     return (
       <div>
@@ -109,14 +109,14 @@ class CoursesTable extends React.Component {
 
           <Table.Body>
             {courses.map((course, index) => {
-              const frontmatter = course.node.frontmatter
-              return <TableItem key={index} course={frontmatter} />
+              const frontmatter = course.node.frontmatter;
+              return <TableItem key={index} course={frontmatter} />;
             })}
           </Table.Body>
         </Table>
       </div>
-    )
+    );
   }
 }
 
-export default CoursesTable
+export default CoursesTable;

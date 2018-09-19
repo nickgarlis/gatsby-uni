@@ -4,6 +4,15 @@
   "version": "1.0.0",
   "author": "Nick Garlis <nickgarlis@gmail.com>",
   "dependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-fbjs": "^2.0.1",
+    "eslint-plugin-babel": "^5.2.0",
+    "eslint-plugin-flowtype": "^2.50.1",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-relay": "^0.0.28",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-catch-links": "^1.0.19",
@@ -14,6 +23,7 @@
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.39",
     "glamor": "^2.20.40",
+    "prettier": "^1.14.3",
     "query-string": "^6.1.0",
     "react-helmet": "^5.2.0",
     "semantic-ui-css": "^2.3.2",
@@ -27,15 +37,11 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "lint": "./node_modules/standard/bin/cmd.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --config .prettierrc --write \"{gatsby-*.js,{data,src}/**/*.js}\"",
+    "lint": "eslint ."
   },
   "devDependencies": {
+    "eslint-config-prettier": "^3.0.1",
     "standard": "^11.0.1"
-  },
-  "standard": {
-    "globals": [
-      "graphql"
-    ]
   }
 }

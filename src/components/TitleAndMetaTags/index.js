@@ -1,3 +1,3 @@
-import TitleAndMetaTags from './TitleAndMetaTags'
+import TitleAndMetaTags from './TitleAndMetaTags';
 
-export default TitleAndMetaTags
+export default TitleAndMetaTags;
