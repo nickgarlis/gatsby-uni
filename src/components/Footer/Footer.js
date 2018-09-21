@@ -4,7 +4,7 @@ import SocialLink from './SocialLink';
 import {siteTitle, siteSocial} from '../../../data/SiteConfig';
 import {colors} from '../../utils/styles';
 
-const Footer = ({logo}) => {
+const Footer = () => {
   const {primary, secondary} = colors;
   return (
     <Segment

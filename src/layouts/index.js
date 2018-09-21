@@ -27,7 +27,7 @@ class Layout extends React.Component {
           <Container style={{marginTop: '7em', marginBottom: '5em'}}>
             {children()}
           </Container>
-          <Footer logo={siteLogo} />
+          <Footer />
         </NavBar>
       </div>
     );
