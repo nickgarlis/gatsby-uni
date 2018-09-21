@@ -3,17 +3,17 @@ import {Icon} from 'semantic-ui-react';
 import {css} from 'glamor';
 import {colors} from '../../utils/styles';
 
-const SocialStyle = css({
+const SocialIconStyle = css({
   color: `${colors.primary}90`,
   ':hover': {
     color: colors.primary,
   },
 });
 
-const SocialLink = ({url, icon}) => {
+const SocialIcon = ({url, icon}) => {
   if (url) {
     return (
-      <a href={url} className={SocialStyle}>
+      <a href={url} className={SocialIconStyle}>
         <Icon circular name={icon} size="large" />
       </a>
     );
@@ -21,4 +21,4 @@ const SocialLink = ({url, icon}) => {
   return null;
 };
 
-export default SocialLink;
+export default SocialIcon;

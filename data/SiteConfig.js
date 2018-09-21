@@ -12,7 +12,7 @@ module.exports = {
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-uni/.
   siteDescription: 'A Gatsby theme meant to be used by Universities.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
-  siteRssAuthor: 'Nick Garlis', // The author name used in the RSS file
+  siteRssAuthor: 'Nick Garlis', // The author name used in the RSS file.
   googleAnalyticsID: '', // GA tracking ID.
   // Links to the pages you want to display in the navigation bar.
   siteNav: [
@@ -33,6 +33,24 @@ module.exports = {
       path: '/news/',
     },
   ],
+  // Links to the pages you want to display on your Footer.
+  footerLinks: {
+    left: {
+      title: 'About',
+      items: [
+        {name: 'Contact us', path: '/'},
+        {name: 'Maps & Directions', path: '/'},
+        {name: 'Sitemap', path: '/'},
+      ],
+    },
+    right: {
+      title: 'Courses',
+      items: [
+        {name: 'Bsc Courses', path: '/'},
+        {name: 'Msc Courses', path: '/'},
+      ],
+    },
+  },
   // Icons and links of the social media you want to appear on the Footer.
   siteSocial: [
     {

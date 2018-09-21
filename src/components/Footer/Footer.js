@@ -1,10 +1,12 @@
 import React from 'react';
-import {Container, Grid, Header, List, Segment} from 'semantic-ui-react';
-import SocialLink from './SocialLink';
-import {siteTitle, siteSocial} from '../../../data/SiteConfig';
+import {Container, Grid, Segment} from 'semantic-ui-react';
+import FooterLinks from './FooterLinks';
+import FooterSocial from './FooterSocial';
+import {footerLinks, siteSocial} from '../../../data/SiteConfig';
 import {colors} from '../../utils/styles';
 
 const Footer = () => {
+  const {left, right} = footerLinks;
   const {primary, secondary} = colors;
   return (
     <Segment
@@ -19,29 +21,13 @@ const Footer = () => {
         <Grid divided inverted stackable textAlign="center">
           <Grid.Row>
             <Grid.Column width={4}>
-              <Header inverted as="h4" content="About" />
-              <List link inverted>
-                <List.Item as="a">Contact {siteTitle}</List.Item>
-                <List.Item as="a">Maps & Directions</List.Item>
-                <List.Item as="a">Sitemap</List.Item>
-              </List>
+              <FooterLinks title={left.title} items={left.items} />
             </Grid.Column>
             <Grid.Column width={4}>
-              <Header inverted as="h4" content="Courses" />
-              <List link inverted>
-                <List.Item as="a">Bsc Courses</List.Item>
-                <List.Item as="a">Msc Courses</List.Item>
-              </List>
+              <FooterLinks title={right.title} items={right.items} />
             </Grid.Column>
             <Grid.Column width={7}>
-              <Header inverted as="h4" content="Social Media" />
-              {siteSocial.map(social => (
-                <SocialLink
-                  key={social.label}
-                  url={social.url}
-                  icon={social.icon}
-                />
-              ))}
+              <FooterSocial title={'Social Media'} items={siteSocial} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
