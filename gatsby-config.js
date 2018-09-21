@@ -1,3 +1,5 @@
+'use strict';
+
 const config = require('./data/SiteConfig');
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;

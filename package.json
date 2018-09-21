@@ -38,7 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --config .prettierrc --write \"{gatsby-*.js,{data,src}/**/*.js}\"",
+    "format": "prettier --config .prettierrc --write \"{gatsby-*.js,{data,gatsby,src}/**/*.js}\"",
     "lint": "eslint .",
     "reset": "rimraf ./.cache"
   },

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   coursesDir: 'courses', // The name of directory that contains your courses.
   peopleDir: 'people', // The name of directory that contains your people.
