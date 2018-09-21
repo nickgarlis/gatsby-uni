@@ -1,15 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import {Table, Header} from 'semantic-ui-react';
-
-const truncateWords = (text, limit) => {
-  return (
-    text
-      .split(' ')
-      .splice(0, limit)
-      .join(' ') + '...'
-  );
-};
+import truncateWords from '../../utils/truncateWords';
 
 const TableItem = ({course}) => (
   <Table.Row>
