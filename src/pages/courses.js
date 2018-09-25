@@ -1,12 +1,12 @@
 import React from 'react';
 import Table from '../components/CoursesTable';
 
-const Courses = ({data, history, location}) => {
+const Courses = ({data, location}) => {
   const courses = data.allMarkdownRemark.edges;
   return (
     <div>
       <h1> Courses </h1>
-      <Table courses={courses} location={location} history={history} />
+      <Table courses={courses} location={location} />
     </div>
   );
 };

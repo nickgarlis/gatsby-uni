@@ -1,4 +1,5 @@
 import React from 'react';
+import {navigate} from '@reach/router';
 import {Table} from 'semantic-ui-react';
 import DropdownSemesters from './DropdownSemesters';
 import TableItem from './TableItem';
@@ -29,9 +30,7 @@ class CoursesTable extends React.Component {
   }
 
   updateSemesterQuery(value) {
-    this.props.history.push({
-      search: `?semester=${value}`,
-    });
+    navigate(`?semester=${value}`);
   }
 
   getTotalSemesters() {
