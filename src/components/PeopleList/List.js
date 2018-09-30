@@ -1,28 +1,26 @@
 import React from 'react';
 import ListItem from './ListItem';
-import {Grid, Header} from 'semantic-ui-react';
+import {Grid} from 'semantic-ui-react';
+import getAcademicTitle from '../../utils/getAcademicTitle';
 
 const List = ({people}) => {
   return (
-    <div>
-      <Header textAlign="center" as="h1" content="People" />
-      <Grid divided inverted stackable textAlign="center">
-        <Grid.Row>
-          {people.map((person, index) => {
-            const frontmatter = person.node.frontmatter;
-            return (
-              <Grid.Column key={index} width={4} style={{marginBottom: '3em'}}>
-                <ListItem
-                  image={frontmatter.image}
-                  name={frontmatter.name}
-                  rank={frontmatter.rank}
-                />
-              </Grid.Column>
-            );
-          })}
-        </Grid.Row>
-      </Grid>
-    </div>
+    <Grid divided inverted stackable textAlign="center">
+      <Grid.Row>
+        {people.map((person, index) => {
+          const {image, name, rank} = person.node.frontmatter;
+          return (
+            <Grid.Column key={index} width={4} style={{marginBottom: '3em'}}>
+              <ListItem
+                image={image}
+                name={name}
+                rank={getAcademicTitle(rank)}
+              />
+            </Grid.Column>
+          );
+        })}
+      </Grid.Row>
+    </Grid>
   );
 };
 

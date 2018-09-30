@@ -84,4 +84,15 @@ module.exports = {
       url: 'https://github.com/',
     },
   ],
+  // Academic Titles
+  academicTitles: [
+    'University Professor', // rank: 0
+    'Professor', // rank: 1
+    'Associate Professor', // rank: 2
+    'Assistant Professor', // rank: 3
+    'Research Associate', // rank: 4
+    'Lecturer', // rank: 5
+    'Instructor', // rank: 6
+    'Visiting Professor', //rank: 7
+  ],
 };
