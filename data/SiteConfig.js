@@ -2,6 +2,7 @@
 
 module.exports = {
   coursesDir: 'courses', // The name of directory that contains your courses.
+  eventsDir: 'events', // The name of directory that contains your events.
   peopleDir: 'people', // The name of directory that contains your people.
   postsDir: 'posts', // The name of directory that contains your people.
   siteTitle: 'Gatsby Uni', // Site title.

@@ -28,6 +28,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/${config.eventsDir}`,
+        name: 'events',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/${config.peopleDir}`,
         name: 'people',
       },
