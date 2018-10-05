@@ -1,7 +1,8 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
-const AboutPage = () => (
-  <div>
+const AboutPage = ({location}) => (
+  <Layout location={location}>
     <h1>About Us</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
@@ -10,7 +11,7 @@ const AboutPage = () => (
       provident ex, perferendis esse, voluptate atque alias officiis dolor
       eligendi itaque qui?
     </p>
-  </div>
+  </Layout>
 );
 
 export default AboutPage;

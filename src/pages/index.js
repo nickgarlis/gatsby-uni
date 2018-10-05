@@ -1,11 +1,13 @@
 import React from 'react';
+import {graphql} from 'gatsby';
 import {Header} from 'semantic-ui-react';
+import Layout from '../components/Layout';
 import Events from '../components/Events';
 
-const IndexPage = ({data}) => {
+const IndexPage = ({data, location}) => {
   const events = data.allMarkdownRemark.edges;
   return (
-    <div>
+    <Layout location={location}>
       <Header as="h1">
         Welcome to Gatsby Uni
         <Header.Subheader>
@@ -13,7 +15,7 @@ const IndexPage = ({data}) => {
         </Header.Subheader>
       </Header>
       <Events events={events} />
-    </div>
+    </Layout>
   );
 };
 

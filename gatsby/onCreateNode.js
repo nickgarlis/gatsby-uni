@@ -1,12 +1,8 @@
 'use strict';
 
 // Add custom field to MarkdownRemark nodes.
-module.exports = exports.onCreateNode = ({
-  boundActionCreators,
-  getNode,
-  node,
-}) => {
-  const {createNodeField} = boundActionCreators;
+module.exports = exports.onCreateNode = ({actions, getNode, node}) => {
+  const {createNodeField} = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent);

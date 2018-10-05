@@ -1,13 +1,15 @@
 import React from 'react';
+import {graphql} from 'gatsby';
+import Layout from '../components/Layout';
 import Table from '../components/CoursesTable';
 
 const Courses = ({data, location}) => {
   const courses = data.allMarkdownRemark.edges;
   return (
-    <div>
+    <Layout location={location}>
       <h1> Courses </h1>
       <Table courses={courses} location={location} />
-    </div>
+    </Layout>
   );
 };
 

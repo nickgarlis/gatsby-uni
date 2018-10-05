@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import {Link} from 'gatsby';
 import {Card, Image} from 'semantic-ui-react';
 import truncateWords from '../../utils/truncateWords';
 

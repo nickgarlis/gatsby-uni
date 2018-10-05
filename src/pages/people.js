@@ -1,12 +1,14 @@
 import React from 'react';
+import {graphql} from 'gatsby';
+import Layout from '../components/Layout';
 import PeopleList from '../components/PeopleList';
 
-const People = ({data}) => {
+const People = ({data, location}) => {
   const people = data.allMarkdownRemark.edges;
   return (
-    <div>
+    <Layout location={location}>
       <PeopleList people={people} />
-    </div>
+    </Layout>
   );
 };
 

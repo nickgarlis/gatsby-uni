@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import {Link} from 'gatsby';
 import {Icon, Image, Menu, Sidebar} from 'semantic-ui-react';
 
 const NavBarMobile = ({
