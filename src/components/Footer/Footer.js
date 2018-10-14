@@ -2,8 +2,8 @@ import React from 'react';
 import {Container, Grid, Segment} from 'semantic-ui-react';
 import FooterLinks from './FooterLinks';
 import FooterSocial from './FooterSocial';
-import {footerLinks, siteSocial} from '../../../data/SiteConfig';
-import {colors} from '../../utils/styles';
+import {footerLinks, siteSocial} from 'SiteConfig';
+import {colors} from 'utils/styles';
 
 const Footer = () => {
   const {left, right} = footerLinks;

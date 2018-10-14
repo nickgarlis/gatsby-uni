@@ -1,8 +1,8 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import {Header} from 'semantic-ui-react';
-import Layout from '../components/Layout';
-import Events from '../components/Events';
+import Layout from 'components/Layout';
+import Events from 'components/Events';
 
 const IndexPage = ({data, location}) => {
   const events = data.allMarkdownRemark.edges;

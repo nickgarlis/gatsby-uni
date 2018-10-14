@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem';
 import {Grid} from 'semantic-ui-react';
-import getAcademicTitle from '../../utils/getAcademicTitle';
+import getAcademicTitle from 'utils/getAcademicTitle';
 
 const List = ({people}) => {
   return (

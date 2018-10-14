@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Header, Segment} from 'semantic-ui-react';
-import {colors} from '../../utils/styles';
+import {colors} from 'utils/styles';
 
 const LayoutHeader = ({location}) => {
   const pageTitle = () => {

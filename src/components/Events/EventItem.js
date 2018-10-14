@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import {Card, Image} from 'semantic-ui-react';
-import truncateWords from '../../utils/truncateWords';
+import truncateWords from 'utils/truncateWords';
 
 const EventItem = ({title, description, date, image}) => {
   return (

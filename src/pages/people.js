@@ -1,7 +1,7 @@
 import React from 'react';
 import {graphql} from 'gatsby';
-import Layout from '../components/Layout';
-import PeopleList from '../components/PeopleList';
+import Layout from 'components/Layout';
+import PeopleList from 'components/PeopleList';
 
 const People = ({data, location}) => {
   const people = data.allMarkdownRemark.edges;

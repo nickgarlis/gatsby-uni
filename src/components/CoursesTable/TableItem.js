@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import {Table, Header} from 'semantic-ui-react';
-import truncateWords from '../../utils/truncateWords';
+import truncateWords from 'utils/truncateWords';
 
 const TableItem = ({course}) => (
   <Table.Row>

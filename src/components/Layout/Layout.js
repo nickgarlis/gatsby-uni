@@ -1,10 +1,10 @@
 import React from 'react';
 import {Container, Image} from 'semantic-ui-react';
-import Footer from '../Footer';
-import LayoutHeader from '../LayoutHeader';
-import NavBar from '../NavBar';
-import TitleAndMetaTags from '../../components/TitleAndMetaTags';
-import {siteNav, siteLogo} from '../../../data/SiteConfig';
+import Footer from 'components/Footer';
+import LayoutHeader from 'components/LayoutHeader';
+import NavBar from 'components/NavBar';
+import TitleAndMetaTags from 'components/TitleAndMetaTags';
+import {siteNav, siteLogo} from 'SiteConfig';
 
 class Layout extends React.Component {
   render() {

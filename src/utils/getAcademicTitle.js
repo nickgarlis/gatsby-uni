@@ -1,4 +1,4 @@
-import {academicTitles} from '../../data/SiteConfig';
+import {academicTitles} from 'SiteConfig';
 
 const getAcademicTitle = rank => {
   return academicTitles[rank] || '';

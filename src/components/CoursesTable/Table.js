@@ -3,7 +3,7 @@ import {navigate} from '@reach/router';
 import {Table} from 'semantic-ui-react';
 import DropdownSemesters from './DropdownSemesters';
 import TableItem from './TableItem';
-import getUrlQuery from '../../utils/getUrlQuery';
+import getUrlQuery from 'utils/getUrlQuery';
 
 class CoursesTable extends React.Component {
   constructor(props) {

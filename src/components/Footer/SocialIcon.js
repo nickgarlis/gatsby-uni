@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from 'semantic-ui-react';
 import {css} from 'glamor';
-import {colors} from '../../utils/styles';
+import {colors} from 'utils/styles';
 
 const SocialIconStyle = css({
   color: `${colors.primary}90`,

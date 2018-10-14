@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import {siteTitle, siteDescription} from '../../../data/SiteConfig';
+import {siteTitle, siteDescription} from 'SiteConfig';
 
 const TitleAndMetaTags = ({title, description}) => {
   // TODO: Use Open Graph Tags
