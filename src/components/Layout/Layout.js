@@ -8,16 +8,13 @@ import {siteNav, siteLogo} from '../../../data/SiteConfig';
 
 class Layout extends React.Component {
   render() {
-    const {children, location} = this.props;
+    const {children, location, headerImage} = this.props;
     return (
       <React.Fragment>
         <TitleAndMetaTags />
         <NavBar location={location} items={siteNav} logo={siteLogo}>
-          {location.pathname === '/' ? (
-            <Image
-              src="http://www.landezine.com/wp-content/uploads/2011/02/4-gh3_landscape-architecture-trinity-college-park.png"
-              fluid
-            />
+          {headerImage ? (
+            <Image src={headerImage} fluid />
           ) : (
             <LayoutHeader location={location} />
           )}

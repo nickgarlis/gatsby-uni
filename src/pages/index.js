@@ -7,7 +7,9 @@ import Events from '../components/Events';
 const IndexPage = ({data, location}) => {
   const events = data.allMarkdownRemark.edges;
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      headerImage="https://source.unsplash.com/d6ebY-faOO0/1920x700">
       <Header as="h1">
         Welcome to Gatsby Uni
         <Header.Subheader>
